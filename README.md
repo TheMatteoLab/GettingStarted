@@ -13,7 +13,17 @@ You should typically not work on the head node. After you have logged in, to nav
 ssh n1
 ```
 
-### Install miniconda 
+# Install software
+
+Add software to `~./bashrc`:
+```
+export PATH=/frazer01/software/bcftools-1.9/bin:$PATH
+export PATH=/frazer01/software/bedtools-2.27.1/bin:$PATH
+export PATH=/frazer01/software/samtools-1.9/bin:$PATH
+export PATH=/frazer0l/software/tabix-0.2.6/bin:$PATH
+```
+
+## miniconda 
 
 From [these instructions](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html). First you will need to install miniconda locally. If this is something you've never done before or have limited experience with, it might be useful to ask someone for more help with this issue. Otherwise proceed as follows.
 
@@ -29,20 +39,45 @@ To make the changes take effect, close and then re-open your terminal window.
 
 Test your installation. In your terminal window or Anaconda Prompt, run the command `conda list`. A list of installed packages appears if it has been installed correctly.
 
-### "Install" plink
 
+## Plink
 For very obnoxious reasons both the original plink (1.9) and plink 2.0 are probably required. Installing them locally is an option, but it may just make an alias. Do this by adding the following two lines to your `~./bashrc` file:
 ```
 alias plink2="/frazer01/software/plink-2.3/plink2_64"
 alias plink="/frazer01/software/plink-1.90b3x/plink"
 ```
+
+
 ### Set up a python kernel for the jupyter lab
 Coming soon.
 
 
 # Running a qsub job
+Run qsub:
+```
+qsub my_script.sh
+```
 
-Coming soon.
+You can include the following to the SH file to pass to `qsub` as:
+```
+#!/bin/bash
+
+#$ -N job_name
+#$ -pe smp 4      ### specify number of cores requested
+#$ -l h_vmem=4G   ### specify amount of memory per core (default is 4Gb per core)
+#$ -l short       ### specify queue ([short, week, long, opt], default is all)
+#$ -V             ### export your current environment parameters to the job
+#$ -cwd           ### change the working directory to where the script was submitted from
+#$ -e ~/std.err   ### redirect stderr to this file
+#$ -o ~/std.out   ### redirect stdout to this file
+#$ -t 1-10        ### define array jobs (in this case will run 10 jobs), use $SGE_TASK_ID to get access to the array index
+```
+
+Always make sure that environment is activated in the SH file:
+```
+source /home/username/.bashrc
+```
+
 
 # Useful File Locations
 
