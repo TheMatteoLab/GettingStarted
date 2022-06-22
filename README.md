@@ -81,4 +81,44 @@ source /home/username/.bashrc
 
 # Useful File Locations
 
-Coming soon.
+- UKBB pgen files: `/frazer01/projects/CEGS/analysis/apoe_haplotypes/input/genotypes/ukbb`
+- UKBB subjects by ethnicity: `/frazer01/projects/CEGS/analysis/ukbb_hla_type_gwas/pipeline/ethnicity/subjects_by_ethnicity/`
+
+# Forking a Github repo brank
+
+First, go on GitHub and click fork in the upper right hand side. This should add the repository to your user account homepage.
+
+```
+git clone <URL-of-repository>
+```
+Navigate into directory on your local machine or server.
+```
+git status
+```
+Should say "on branch master"
+```
+git branch
+```
+Should say "* master"
+```
+git pull upstream master
+```
+
+Should give error ‘upstream’ does not appear to be a git repo
+```
+git remote add upstream <URL>
+git pull upstream master
+```
+should execute with no errors
+```
+git checkout -b desired-branch-name
+git branch
+```
+Should say "* desired-branch-name"
+```
+git add file1
+git commit -m ‘Update file1’
+git push origin desired-branch-name
+```
+
+Then go to the github website and go to PULL REQUESTS in the upper left corner. Click issue pull request and add any comments. Make sure you don’t click merge on the website until someone reviews your code!
