@@ -84,7 +84,7 @@ source /home/username/.bashrc
 - UKBB pgen files: `/frazer01/projects/CEGS/analysis/apoe_haplotypes/input/genotypes/ukbb`
 - UKBB subjects by ethnicity: `/frazer01/projects/CEGS/analysis/ukbb_hla_type_gwas/pipeline/ethnicity/subjects_by_ethnicity/`
 
-# Forking a Github repo brank
+# Forking a Github repo branch
 
 First, go on GitHub and click fork in the upper right hand side. This should add the repository to your user account homepage.
 
