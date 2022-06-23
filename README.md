@@ -114,7 +114,7 @@ should execute with no errors
 git checkout -b desired-branch-name
 git branch
 ```
-Should say "* desired-branch-name"
+Should say "* desired-branch-name". We are trying to see if this is executing the correct sequence of commands.
 ```
 git add file1
 git commit -m ‘Update file1’
