@@ -1,16 +1,57 @@
-# Links
+# ToDo
+- [x] add useful links
+- [ ] add links to important papers
+- [x] add info on how to connect to the cluster and jupyterlab
+- [ ] directory structure
+- [ ] expand useful file locations
+- [ ] create tutorials (on a separate repository?)
+
+# Useful links
 - [CAST website](https://admixgenomics.ucsd.edu/)
 - [UKBB user site](https://bbams.ndph.ox.ac.uk/ams/researcher_home.jsp)
+- [AllOfUs researcher workbench](https://workbench.researchallofus.org/login)
+- [AllOfUs data browser](https://databrowser.researchallofus.org/)
 
-# Getting Started
+## Reading
+Coming soon.
 
-Initially you should have a user account on the Frazer Lab server. In order to access the server from your home terminal:
+# Getting started
+
+Initially you should have a user account on the Frazer Lab cluster. In order to access the cluster from your home terminal:
 ```
 ssh username@flh1.ucsd.edu
 ```
 You should typically not work on the head node. After you have logged in, to navigate elsewhere:
 ```
-ssh n1
+qlogin
+```
+To request more memory/cores:
+```
+qlogin -pe smp 4 -l h_vmem=4G # request 4 cores (4 Gb/core)
+```
+
+## Connect to jupyterlab:
+[jupyterlab](https://flh1.ucsd.edu:9000/user/username/lab)
+
+To delete jupyterlab jobs (via command line):
+
+1. Run qstat to find the job ID
+```
+qstat
+```
+
+```
+{
+job-ID  prior   name       user         state submit/start at     queue                          slots ja-task-ID
+-----------------------------------------------------------------------------------------------------------------
+8803323 0.55617 jupyterhub username1    r     06/06/2022 11:37:43 juphigh.q@fl-n-1-10               16
+8803325 0.55617 jupyterhub username2    r     06/06/2022 14:08:13 juphigh.q@fl-n-1-3                16
+}
+```
+
+2. qdel your job ID
+```
+qdel 8803323
 ```
 
 # Install software
@@ -77,7 +118,6 @@ Always make sure that environment is activated in the SH file:
 ```
 source /home/username/.bashrc
 ```
-
 
 # Useful File Locations
 
