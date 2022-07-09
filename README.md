@@ -35,7 +35,7 @@ qlogin -pe smp 4 -l h_vmem=4G # request 4 cores (4 Gb/core)
 
 To delete jupyterlab jobs (via command line):
 
-1. Run qstat to find the job ID
+1. Run qstat to find the job ID 
 ```
 qstat
 ```
