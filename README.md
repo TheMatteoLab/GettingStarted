@@ -14,7 +14,7 @@
 - [Frazer lab cluster wiki](https://github.com/frazer-lab/cluster/wiki)
 
 ## Reading
-Coming soon.
+Coming soon. 
 
 # Getting started
 
