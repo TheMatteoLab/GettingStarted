@@ -105,14 +105,15 @@ You can include the following to the SH file to pass to `qsub` as:
 #!/bin/bash
 
 #$ -N job_name
-#$ -pe smp 4      ### specify number of cores requested
-#$ -l h_vmem=4G   ### specify amount of memory per core (default is 4Gb per core)
-#$ -l short       ### specify queue ([short, week, long, opt], default is all)
-#$ -V             ### export your current environment parameters to the job
-#$ -cwd           ### change the working directory to where the script was submitted from
-#$ -e ~/std.err   ### redirect stderr to this file
-#$ -o ~/std.out   ### redirect stdout to this file
-#$ -t 1-10        ### define array jobs (in this case will run 10 jobs), use $SGE_TASK_ID to get access to the array index
+#$ -pe smp 4                                ### specify number of cores requested
+#$ -l h_vmem=4G                             ### specify amount of memory per core (default is 4Gb per core)
+#$ -l short                                 ### specify queue ([short, week, long, opt], default is all)
+#$ -V                                       ### export your current environment parameters to the job
+#$ -cwd                                     ### change the working directory to where the script was submitted from
+#$ -e ~/std.err                             ### redirect stderr to this file
+#$ -o ~/std.out                             ### redirect stdout to this file
+#$ -t 1-10                                  ### define array jobs (in this case will run 10 jobs), use $SGE_TASK_ID to get access to the array index
+#$ -l hostname="fl-n-1-1|fl-n-1-3|fl-n-1-4" ### define the nodes you want your jobs to run (1-17)
 ```
 
 Always make sure that environment is activated in the SH file:
